@@ -7,10 +7,10 @@ import PostTags from '../components/PostTags'
 import SocialLinks from '../components/SocialLinks'
 import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
-import styles from './post.module.scss'
+import * as styles from './post.module.scss'
 import './prism-okaidia.css'
 
-export default ({ data, pageContext }) => {
+const PostTemplate = ({ data, pageContext }) => {
   const { slug, nexttitle, nextslug, prevtitle, prevslug } = pageContext
   const postNode = data.markdownRemark
   const post = postNode.frontmatter
@@ -59,6 +59,8 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+export default PostTemplate;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
