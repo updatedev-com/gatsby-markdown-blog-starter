@@ -41,9 +41,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({ node, name: "slug", value: slug });
 
     if (
-      Object.prototype.hasOwnProperty.call(node.frontmatter, "author")
+      Object.prototype.hasOwnProperty.call(node.frontmatter, "authorSlug")
     ) {
-      createNodeField({ node, name: "author", value: Authors[node.frontmatter.author] });
+      createNodeField({ node, name: "author", value: Authors[node.frontmatter.authorSlug] });
     }
   }
 };
