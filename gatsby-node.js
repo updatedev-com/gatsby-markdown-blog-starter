@@ -2,6 +2,7 @@ const path = require("path");
 const _ = require("lodash");
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
+const Authors = require("./data/Authors");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -38,6 +39,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       }
     }
     createNodeField({ node, name: "slug", value: slug });
+
+    if (
+      Object.prototype.hasOwnProperty.call(node.frontmatter, "authorSlug")
+    ) {
+      createNodeField({ node, name: "author", value: Authors[node.frontmatter.authorSlug] });
+    }
   }
 };
 

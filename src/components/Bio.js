@@ -2,19 +2,18 @@ import React from 'react'
 import { Follow } from 'react-twitter-widgets'
 import * as styles from './Bio.module.scss'
 
-const Bio = ({ config, expanded }) => (
+const Bio = ({ author, expanded }) => (
   <>
     <img
       className={styles.avatar}
-      src={config.userAvatar}
-      alt={config.userName}
+      src={author.avatar}
+      alt={author.name}
     />
     <span>
-      Written by <strong>{config.userName}</strong> who lives and works in San
-      Francisco building useful things.
+      Written by <strong>{author.name}</strong>.
       {` `}
       <Follow
-        username={config.userTwitter}
+        username={author.twitter}
         options={{ count: expanded ? true : 'none' }}
       />
     </span>

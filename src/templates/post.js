@@ -15,6 +15,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const postNode = data.markdownRemark
   const post = postNode.frontmatter
   const date = postNode.fields.date
+  const author = postNode.fields.author;
   if (!post.id) {
     post.id = slug
   }
@@ -36,7 +37,9 @@ const PostTemplate = ({ data, pageContext }) => {
           <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
 
           <hr />
-          <Bio config={config} />
+          {author &&
+            <Bio author={author} />
+          }
           <div className={styles.postMeta}>
             <SocialLinks postPath={slug} postNode={postNode} />
           </div>
@@ -79,6 +82,12 @@ export const pageQuery = graphql`
       fields {
         slug
         date(formatString: "MMMM DD, YYYY")
+        author {
+          name
+          avatar
+          twitter
+          description
+        }
       }
     }
   }
