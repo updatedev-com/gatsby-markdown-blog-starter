@@ -1,0 +1,13 @@
+.category-box {
+  text-decoration: none;
+  list-style-type: none;
+
+  font-size: 0.8rem;
+  padding: 10px 15px;
+}
+
+@media (max-width: 520px) {
+  .category-box {
+    display: none;
+  }
+}

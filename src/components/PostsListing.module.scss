@@ -27,12 +27,14 @@
 
   .article-categories-box {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: -10px;
 
     > div {
       border: 1px solid #3c4856;
       border-radius: 3px;
       padding: 2px 5px;
-      margin-right: 5px;
+      margin: 2px 3px 2px 3px;
       font-size: 0.7rem;
     }
   }
