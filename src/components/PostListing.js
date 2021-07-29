@@ -24,20 +24,29 @@ const PostListing = ({ postEdges }) => {
   return (
     <div className={styles.articleList}>
       {/* Your post list here. */
-      postList.map(post => (
-        <Link to={post.path} key={post.title}>
-          <article className={styles.articleBox}>
-            <div className={styles.right}>
-              <h3>{post.title}</h3>
-              <div className={styles.meta}>
-                {post.date} &mdash; <span>{post.categories.join(' / ')}</span>{' '}
-                &mdash; {post.timeToRead} Min Read{' '}
+        postList.map(post => (
+          <Link to={post.path} key={post.title}>
+            <article className={styles.articleBox}>
+              <div className={styles.right}>
+                <h3>{post.title}</h3>
+                <div className={styles.meta}>
+                  {post.date} &mdash; <span>{post.categories.join(' / ')}</span>{' '}
+                  &mdash; {post.timeToRead} Min Read{' '}
+                </div>
+                <p>{post.excerpt}</p>
+                {post.categories.length > 0 && (
+                  <div className={styles.articleCategoriesBox}>
+                    {post.categories.map(category => (
+                      <div>
+                        {category}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-              <p>{post.excerpt}</p>
-            </div>
-          </article>
-        </Link>
-      ))}
+            </article>
+          </Link>
+        ))}
     </div>
   )
 }
